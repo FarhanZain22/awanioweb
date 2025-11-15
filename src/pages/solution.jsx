@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import Card from "../components/card";
 import Footer from "../components/Footer";
 import images from "../assets";
@@ -72,7 +72,7 @@ const Solution = () => {
             </div>
 
             {/* Cards */}
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
               <Card icon={images.x86} title="X86 Architecture" variant="hyper" />
               <Card icon={images.ibmlinux} title="IBM LinuxOne" variant="hyper" />
               <Card icon={images.ibmpower} title="IBM Power" variant="hyper" />

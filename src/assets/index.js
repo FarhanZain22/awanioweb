@@ -24,6 +24,37 @@ import facebook from "./images/fb.png";
 import twitter from "./images/x.png";
 import linkedin from "./images/linkedin.png";
 import instagram from "./images/ig.png";
+import landinghero from "./images/landinghero.png";
+import speed from "./images/speed.png";
+import speed1 from "./images/speed1.png";
+import speed2 from "./images/speed2.png";
+import user from "./images/user.png";
+import landing1 from "./images/landing1.png";
+import landing2 from "./images/landing2.png";
+import landing3 from "./images/landing3.png";
+import landing4 from "./images/landing4.png";
+import landing5 from "./images/landing5.png";
+import landing6 from "./images/landing6.png";
+import amt from "./images/amt.png";
+import awanawa from "./images/awanawa.png";
+import dxy from "./images/DXYCloud.png";
+import exalogi from "./images/exalogi.png";
+import festino from "./images/festino.png";
+import fusion from "./images/FUSION.png";
+import ibm from "./images/IBM.png";
+import idcloudHost from "./images/idcloudHost.png";
+import inticloud from "./images/inticloud.png";
+import intikom from "./images/intikom.png";
+import jasaraharja from "./images/JasaRaharja.png";
+import krakatau from "./images/krakatau.png";
+import metrocom from "./images/metrocim.png";
+import mitramandiri from "./images/mitramandiri.png";
+import sapta from "./images/sapta.png";
+import sentra from "./images/sentra.png";
+import sinergi from "./images/sinergi.png";
+import synex from "./images/synex.png";
+
+
 
 const images = {
   awanlogo,
@@ -47,7 +78,41 @@ const images = {
   p3dn,
   pdpl,
   telpon,
-  mail,facebook, instagram,linkedin, twitter
+  mail,
+  facebook,
+  instagram,
+  linkedin,
+  twitter,
+  landing1,
+  landing2,
+  landing3,
+  landing4,
+  landing5,
+  landing6,
+  landinghero,
+  speed,
+  speed1,
+  speed2,
+  user,
+  amt,
+  awanawa,
+  dxy,
+  exalogi,
+  festino,
+  fusion,
+  ibm,
+  idcloudHost,
+  inticloud,
+  intikom,
+  jasaraharja,
+  krakatau,
+  metrocom,
+  mitramandiri,
+  sapta,
+  sentra,
+  sinergi,
+  synex,
 };
+
 
 export default images;
