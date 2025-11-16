@@ -1,8 +1,9 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import Card from "../components/card";
 import Footer from "../components/Footer";
 import images from "../assets";
+
 
 const Solution = () => {
   return (

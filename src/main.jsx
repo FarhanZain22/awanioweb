@@ -2,14 +2,21 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Solution from "./pages/solution/";
 import App from "./App";
+import About from "./pages/About";
+import Product from "./pages/Product";
+import Solution from "./pages/solution/";
+import Demo from "./pages/demo";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/product" element={<Product />} />
         <Route path="/solution" element={<Solution />} />
+        <Route path="/demo" element={<Demo />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
