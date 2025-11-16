@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import images from "../assets";
 
 const Footer = ({ active = "" }) => {
@@ -17,28 +18,42 @@ const Footer = ({ active = "" }) => {
           <h3 className="font-semibold text-[#1E1E1E] mb-4">Explore us</h3>
 
           <div className="flex flex-col gap-2">
-            <button className={`${menuClass("about")} text-left w-fit`}>About</button>
-            <button className={`${menuClass("product")} text-left w-fit`}>Product</button>
-            <button className={`${menuClass("solution")} text-left w-fit`}>Solution</button>
-            <button className={`${menuClass("support")} text-left w-fit`}>Support</button>
-            <button className={`${menuClass("partner")} text-left w-fit`}>Partner</button>
-            <button className={`${menuClass("demo")} text-left w-fit`}>Demo</button>
-            <button className={`${menuClass("privacy")} text-left w-fit`}>Privacy Policy</button>
+            {/* Internal Routes */}
+            <Link to="/about" className={`${menuClass("about")} w-fit`}>
+              About
+            </Link>
+            <Link to="/product" className={`${menuClass("product")} w-fit`}>
+              Product
+            </Link>
+            <Link to="/solution" className={`${menuClass("solution")} w-fit`}>
+              Solution
+            </Link>
+
+            {/* External Links */}
+            <a href="https://docs.awan.io/" target="_blank" rel="noopener noreferrer" className={`w-fit ${menuClass("support")}`}>
+              Support
+            </a>
+
+            <a href="https://partner.awan.io/" target="_blank" rel="noopener noreferrer" className={`w-fit ${menuClass("partner")}`}>
+              Partner
+            </a>
+
+            {/* Internal Routes */}
+            <Link to="/demo" className={`${menuClass("demo")} w-fit`}>
+              Demo
+            </Link>
+            <Link to="/privacy-policy" className={`${menuClass("privacy")} w-fit`}>
+              Privacy Policy
+            </Link>
           </div>
         </div>
 
         {/* Registered At */}
         <div>
           <h3 className="font-semibold text-[#1E1E1E] mb-4">Registered at</h3>
-
           <div className="flex flex-col space-y-4">
-            {/* KOMINFO */}
             <img src={images.kominfo} alt="Kominfo" className="object-contain max-w-[30px]" />
-
-            {/* UU PDP */}
             <img src={images.pdpl} alt="UU PDP Ready" className="object-contain max-w-[50px]" />
-
-            {/* P3DN */}
             <img src={images.p3dn} alt="P3DN" className="object-contain max-w-[50px]" />
           </div>
         </div>
@@ -71,7 +86,10 @@ const Footer = ({ active = "" }) => {
       <div className="py-4 mt-10">
         <div className="max-w-[1200px] mx-auto px-8 flex justify-between text-sm text-[#555]">
           <span>Awanio © 2023</span>
-          <span className="cursor-pointer hover:underline">Privacy Policy</span>
+
+          <Link to="/privacy-policy" className="cursor-pointer hover:underline">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

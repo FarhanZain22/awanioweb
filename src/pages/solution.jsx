@@ -4,6 +4,7 @@ import Card from "../components/card";
 import Footer from "../components/Footer";
 import images from "../assets";
 
+
 const Solution = () => {
   return (
     <>
