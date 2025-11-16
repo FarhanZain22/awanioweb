@@ -53,8 +53,7 @@ import sapta from "./images/sapta.png";
 import sentra from "./images/sentra.png";
 import sinergi from "./images/sinergi.png";
 import synex from "./images/synex.png";
-
-
+import loginhero from "./images/loginhero.png";
 
 const images = {
   awanlogo,
@@ -112,7 +111,7 @@ const images = {
   sentra,
   sinergi,
   synex,
+  loginhero,
 };
-
 
 export default images;
