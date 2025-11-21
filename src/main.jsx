@@ -3,8 +3,9 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { Toaster } from "react-hot-toast"; // <<< WAJIB
+
 import ScrollToTop from "./components/ScrollToTop";
-import App from "./App";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ScrollToTop />
+      <Toaster position="top-center" /> {/* <<< TOAST RENDER DI SINI */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/solution" element={<Solution />} />
