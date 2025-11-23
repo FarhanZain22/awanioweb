@@ -26,7 +26,7 @@ const Solution = () => {
         </section>
 
         {/* ========== CLOUD ENABLER SECTION ========== */}
-        <section className="bg-[#F8F9FB] sm:h-screen">
+        <section className="bg-[#F8F9FB] pb-20">
           <div className="max-w-[1200px] mx-auto pt-20">
             {/* Title & Subtitle */}
             <div className="text-center mb-12">
@@ -60,7 +60,7 @@ const Solution = () => {
         </section>
 
         {/* ========== HYPER SECTION ========== */}
-        <section className=" relative w-full  h-full sm:h-screen pb-10 lg:h-[700px] bg-cover bg-center" style={{ backgroundImage: `url(${images.hyperbg})` }}>
+        <section className=" relative w-full  h-full  pb-10 lg:h-[700px] bg-cover bg-center" style={{ backgroundImage: `url(${images.hyperbg})` }}>
           <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-24">
             {/* Judul & Deskripsi */}
             <div className="text-white mb-8 sm:mb-12 lg:mb-16">
@@ -82,7 +82,7 @@ const Solution = () => {
         </section>
 
         {/* ========== SECURITY SECTION ========== */}
-        <section className="bg-[#F8F9FB] py-12 sm:py-16 lg:py-20 sm:h-screen">
+        <section className="bg-[#F8F9FB] py-12 sm:py-16 lg:py-20">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Title */}
             <div className="text-right mb-8 sm:mb-10 lg:mb-14 flex flex-col items-end">
