@@ -13,6 +13,8 @@ import About from "./pages/About";
 import Product from "./pages/Product";
 import Solution from "./pages/solution/";
 import Demo from "./pages/Demo";
+import AdminChatPage from "./pages/AdminDashboard";
+import LiveChat from "./components/LiveChat";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,7 +29,9 @@ createRoot(document.getElementById("root")).render(
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
         <Route path="/demo" element={<Demo />} />
+        <Route path="/admin" element={<AdminChatPage />} />
       </Routes>
+      <LiveChat userName="Pengunjung" />
     </BrowserRouter>
   </StrictMode>
 );
