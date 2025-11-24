@@ -85,15 +85,29 @@ const Footer = ({ active = "" }) => {
           </div>
         </div>
 
-        {/* Registered At */}
+        {/* Registered At - UPDATED SECTION */}
         <div>
           <h3 className="font-semibold text-[#1E1E1E] dark:text-gray-100 mb-4">{t.registered}</h3>
           <div className="flex flex-col space-y-4">
-            {/* Logo partner biasanya berwarna, jika perlu background putih tambahkan 'bg-white p-1 rounded' */}
-            {/* Di sini saya tambahkan filter brightness agar sedikit lebih terang di background gelap */}
-            <img src={images.kominfo} alt="Kominfo" className="object-contain max-w-[30px] dark:brightness-200" />
-            <img src={images.pdpl} alt="UU PDP Ready" className="object-contain max-w-[50px] dark:brightness-200" />
-            <img src={images.p3dn} alt="P3DN" className="object-contain max-w-[50px] dark:brightness-200" />
+            {/* Kominfo Link */}
+            <a href="https://pse.komdigi.go.id/tdpse-detail/293" target="_blank" rel="noopener noreferrer" className="w-fit hover:opacity-80 transition-opacity">
+              <img src={images.kominfo} alt="Kominfo" className="object-contain max-w-[30px] dark:brightness-200" />
+            </a>
+
+            {/* PDPL Link */}
+            <a href="https://metalab.co.id/verification-mpdpl001/" target="_blank" rel="noopener noreferrer" className="w-fit hover:opacity-80 transition-opacity">
+              <img src={images.pdpl} alt="UU PDP Ready" className="object-contain max-w-[50px] dark:brightness-200" />
+            </a>
+
+            {/* P3DN Link */}
+            <a
+              href="https://tkdn.kemenperin.go.id/sertifikat_perush.php?id=tuPkBUebw_EAYOIsRUWzGHIGXpIgYmY8_2hXRab5Utc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-fit hover:opacity-80 transition-opacity"
+            >
+              <img src={images.p3dn} alt="P3DN" className="object-contain max-w-[50px] dark:brightness-200" />
+            </a>
           </div>
         </div>
 
