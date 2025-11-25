@@ -28,13 +28,18 @@ const About = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-white">
+    // Tambahkan dark:bg-gray-900 dan transition
+    <div className="w-full min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navbar active="about" />
 
       {/* ====================== TOP SECTION ====================== */}
       <section className="mt-28 text-center px-4">
-        <h2 className="text-3xl font-bold text-blue-900">Who we are</h2>
-        <p className="max-w-2xl mx-auto text-gray-600 mt-3">
+        {/* Judul: dark:text-blue-400 */}
+        <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-400 transition-colors">
+          Who we are
+        </h2>
+        {/* Deskripsi: dark:text-gray-300 */}
+        <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mt-3 transition-colors">
           Awanio is a cloud technology company focusing on platform-as-a-service,
           working with global partners to support enterprise-grade solutions.
         </p>
@@ -50,6 +55,7 @@ const About = () => {
             {slides.map((item, i) => (
               <div
                 key={i}
+                // Background gradient card tetap sama karena sudah kontras dengan teks putih
                 className="min-w-full p-8 flex items-center justify-between bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-3xl"
               >
                 {/* LEFT CONTENT */}
@@ -79,8 +85,9 @@ const About = () => {
             {slides.map((_, i) => (
               <div
                 key={i}
+                // Update warna dot saat tidak aktif agar terlihat di dark mode (dark:bg-gray-700)
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === i ? "bg-blue-700" : "bg-gray-300"
+                  index === i ? "bg-blue-700 dark:bg-blue-500" : "bg-gray-300 dark:bg-gray-700"
                 }`}
               ></div>
             ))}
@@ -90,27 +97,31 @@ const About = () => {
 
       {/* ====================== MILESTONE TITLE ====================== */}
       <section className="mt-20 text-center px-4">
-        <h2 className="text-3xl font-bold text-blue-900">Our Milestones So Far</h2>
-        <p className="max-w-2xl mx-auto text-gray-600 mt-3">
+        {/* Judul: dark:text-blue-400 */}
+        <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-400 transition-colors">
+          Our Milestones So Far
+        </h2>
+        {/* Deskripsi: dark:text-gray-300 */}
+        <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mt-3 transition-colors">
           Explore our journey and achievements as we expand our partnerships and
           enhance our technology in the cloud ecosystem.
         </p>
       </section>
 
       {/* ====================== TIMELINE IMAGE ====================== */}
-      <section className="flex justify-center mt-14 px-4">
+      <section className="flex justify-center mt-14 px-4 pb-20">
         <div
-          className="w-full max-w-4xl bg-no-repeat bg-center bg-contain"
+          className="w-full max-w-4xl bg-no-repeat bg-center bg-contain dark:invert transition-all duration-300"
           style={{
             backgroundImage: "url('../src/assets/image-about/milestone.png')",
-            minHeight: "1600px",
+            minHeight: "1000px",
           }}
         ></div>
       </section>
 
       <div className="h-20" />
 
-    {/* ========== FOOTER ========== */}
+      {/* ========== FOOTER ========== */}
       <Footer active="about" />
     </div>
   );
