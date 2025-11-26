@@ -40,10 +40,9 @@ createRoot(document.getElementById("root")).render(
         </Routes>
 
         {/* LiveChat sekarang ada di dalam Provider, aman jika butuh fitur bahasa */}
-        {window.location.pathname !== "/admin" &&(
+        {window.location.pathname !== "/admin" && (
           <LiveChat userName="Pengunjung" />
         )}
-        
       </LanguageProvider>
     </BrowserRouter>
   </StrictMode>
