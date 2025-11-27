@@ -8,28 +8,23 @@ const Navbar = () => {
   const location = useLocation();
 
   // --- LOGIC DARK MODE ---
-  // Cek local storage atau default ke 'light'
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
     const root = window.document.documentElement;
-    // Hapus class lama, tambah class baru
     root.classList.remove("light", "dark");
     root.classList.add(theme);
-
-    // Simpan ke local storage
     localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
-  // -----------------------
 
-  // 1. Ambil state bahasa
+  // Ambil state bahasa
   const { language, setLanguage } = useLanguage();
 
-  // 2. Buat Kamus Kata
+  // Buat Kamus Kata
   const translations = {
     ID: {
       about: "Tentang Kami",
@@ -72,19 +67,16 @@ const Navbar = () => {
   const closeMenu = () => setOpen(false);
 
   return (
-    // Tambahkan dark:bg-gray-900 agar header berubah warna saat mode gelap
     <header className="w-full z-50 flex flex-col font-sans bg-white dark:bg-gray-900 relative shadow-sm transition-colors duration-300">
-      {/* --- BAGIAN 1: TOP BAR --- */}
-      {/* Tambahkan dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 */}
+      {/* ====================== TOP BAR ====================== */}
       <div className="hidden lg:flex justify-end items-center h-10 px-6 sm:px-10 lg:px-20 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 text-sm transition-colors duration-300">
-        {/* --- TOMBOL DARK MODE (Posisi: Sebelah Kiri Bahasa) --- */}
+        {/* --- TOMBOL DARK MODE --- */}
         <button
           onClick={toggleTheme}
           className="flex items-center gap-2 mr-6 pr-6 border-r border-gray-300 dark:border-gray-600 h-6 text-gray-500 dark:text-gray-300 hover:text-[#00ADEE] transition-colors"
           title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
         >
           {theme === "light" ? (
-            // Icon Bulan (Moon) untuk switch ke Dark
             <>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
@@ -92,7 +84,6 @@ const Navbar = () => {
               <span className="text-xs font-semibold">DARK</span>
             </>
           ) : (
-            // Icon Matahari (Sun) untuk switch ke Light
             <>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -110,7 +101,6 @@ const Navbar = () => {
         {/* Language Switcher */}
         <div className="flex items-center gap-3 pr-6 border-r border-gray-300 dark:border-gray-600 h-6">
           <span className="text-gray-500 dark:text-gray-400 text-xs font-semibold tracking-wide">{t.langLabel}</span>
-
           <button
             onClick={() => setLanguage("ID")}
             className={`flex items-center gap-1 font-bold transition-colors ${language === "ID" ? "text-[#00ADEE]" : "text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"}`}
@@ -126,7 +116,6 @@ const Navbar = () => {
         </div>
 
         {/* Admin Link */}
-        {/* Tambahkan dark:text-gray-200 */}
         <Link to="/login" className="flex items-center gap-2 pl-6 text-[#1E1E1E] dark:text-gray-200 hover:text-[#00ADEE] dark:hover:text-[#00ADEE] font-semibold transition-colors">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -135,12 +124,10 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* --- BAGIAN 2: MAIN NAVBAR --- */}
-      {/* Tambahkan dark:bg-gray-900 */}
+      {/* ====================== MAIN NAVBAE ====================== */}
       <nav className="w-full flex items-center h-20 px-6 sm:px-10 lg:px-20 justify-between bg-white dark:bg-gray-900 transition-colors duration-300">
         {/* LOGO */}
         <Link to="/" onClick={closeMenu}>
-          {/* Opsional: Jika logo perlu versi putih untuk dark mode, atur logic di sini. Jika logo sudah cocok di kedua background, biarkan saja. */}
           <img src={images.awanlogo} alt="Logo" className="w-24 sm:w-28 cursor-pointer" />
         </Link>
 
@@ -148,7 +135,6 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-6 ml-auto">
           {navLinks.map((link, index) =>
             link.type === "internal" ? (
-              // Update warna text default dan active state
               <Link
                 key={index}
                 to={link.path}
@@ -183,11 +169,31 @@ const Navbar = () => {
             open ? "max-h-screen py-5 opacity-100" : "max-h-0 py-0 opacity-0"
           }`}
         >
-          {navLinks.map((link, index) => (
-            <Link key={index} to={link.path} onClick={closeMenu} className="py-3 px-6 text-[#1E1E1E] dark:text-gray-100 hover:text-[#00ADEE] font-medium border-b border-gray-50 dark:border-gray-800">
-              {link.title}
-            </Link>
-          ))}
+          {navLinks.map((link, index) =>
+            link.type === "internal" ? (
+              <Link
+                key={index}
+                to={link.path}
+                onClick={closeMenu}
+                className={`py-3 px-6 font-medium border-b border-gray-50 dark:border-gray-800 hover:text-[#00ADEE] transition-colors ${
+                  location.pathname === link.path ? "text-[#00ADEE]" : "text-[#1E1E1E] dark:text-gray-100"
+                }`}
+              >
+                {link.title}
+              </Link>
+            ) : (
+              <a
+                key={index}
+                href={link.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="py-3 px-6 font-medium border-b border-gray-50 dark:border-gray-800 hover:text-[#00ADEE] transition-colors text-[#1E1E1E] dark:text-gray-100"
+              >
+                {link.title}
+              </a>
+            )
+          )}
 
           {/* Mobile Bottom Actions */}
           <div className="flex justify-between items-center px-6 mt-4 pt-4 bg-gray-50 dark:bg-gray-800 mx-4 rounded-lg">
@@ -201,7 +207,6 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Tombol Dark Mode Mobile (Opsional, diletakkan di sebelah Admin Login Mobile) */}
             <button onClick={toggleTheme} className="text-gray-500 dark:text-gray-300 hover:text-[#00ADEE]">
               {theme === "light" ? (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

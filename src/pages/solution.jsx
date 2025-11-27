@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Card from "../components/card";
+import Card from "../components/Card";
 import Footer from "../components/Footer";
 import images from "../assets";
 import { useLanguage } from "../Context/LanguageContext";
@@ -113,7 +113,7 @@ const Solution = () => {
 
                 <div className="flex justify-between gap-4">
                   <Card icon={images.state} title={text.cardSoe} variant="blue" />
-                  <Card icon={images.defense} title={text.cardDefense} variant="blue" />
+                  <Card icon={images.defense} title={-text.cardDefense} variant="blue" />
                 </div>
               </div>
 

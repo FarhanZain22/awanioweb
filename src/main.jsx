@@ -17,7 +17,7 @@ import Solution from "./pages/solution";
 import Demo from "./pages/Demo";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AdminChatPage from "./pages/AdminDashboard";
-import LiveChat from "./components/LiveChat";
+import LiveChatWrapper from "./components/LiveChatWrapper";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -39,10 +39,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/admin" element={<AdminChatPage />} />
         </Routes>
 
-        {/* LiveChat sekarang ada di dalam Provider, aman jika butuh fitur bahasa */}
-        {window.location.pathname !== "/admin" && (
-          <LiveChat userName="Pengunjung" />
-        )}
+        <LiveChatWrapper />
       </LanguageProvider>
     </BrowserRouter>
   </StrictMode>

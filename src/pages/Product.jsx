@@ -13,7 +13,7 @@ import iconImprove from "../assets/image-product/improve.png";
 import iconSeamless from "../assets/image-product/seamless.png";
 import iconSimplifies from "../assets/image-product/simplifies.png";
 import bgExplore from "../assets/image-product/bg-explore.png";
-import iconHcl from "../assets/image-product/Hyper.png";
+import iconHcl from "../assets/image-product/hyper.png";
 import iconPlatform from "../assets/image-product/platform.png";
 import iconDashboard from "../assets/image-product/dashboard.png";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import images from "../assets";
-import Card from "../components/card";
+import Card from "../components/Card";
 import Footer from "../components/Footer";
 import { useLanguage } from "../Context/LanguageContext";
 

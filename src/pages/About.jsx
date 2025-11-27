@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChevronLeft, ChevronRight, Cloud, Target, Globe } from "lucide-react";
 import { useLanguage } from "../Context/LanguageContext";
+import aboutImage from "../assets/image-about/about.png";
 
 const About = () => {
   const [index, setIndex] = useState(0);
@@ -158,13 +159,9 @@ const translations = {
         {/* Container: Background, Border, Shadow DIHAPUS agar menyatu dengan parent */}
         <div className="w-full max-w-6xl">
           <img
-            src="../src/assets/image-about/about.png"
+            src={aboutImage}
             alt="Awanio Timeline"
             className="w-full h-auto object-contain"
-            onError={(e) => {
-              e.target.style.display = "none";
-              e.target.parentElement.innerHTML = '<div class="p-10 text-center text-gray-400">Timeline image not found</div>';
-            }}
           />
         </div>
       </section>
