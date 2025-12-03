@@ -47,9 +47,7 @@ const Demo = () => {
 
   const text = translations[language];
 
-  // ==============================
   // FORM STATE
-  // ==============================
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -66,10 +64,13 @@ const Demo = () => {
     });
   };
 
+  // ======================
+  // Submit to Backend API
+  // ======================
   const handleSubmit = async () => {
     try {
       const res = await fetch(
-        "http://localhost:5000/api/request-demo", // GANTI SETELAH DEPLOY
+        `${import.meta.env.VITE_API_URL}/api/request-demo`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
