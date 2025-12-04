@@ -48,9 +48,17 @@ const Footer = ({ active = "" }) => {
       <div className="max-w-[1200px] mx-auto px-8 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Logo Section */}
         <div>
-          {/* Filter invert agar logo hitam menjadi putih di dark mode */}
-          <img src={images.awanlogo} alt="Awanio Logo" className="w-32 mb-4 dark:brightness-0 dark:invert transition-all duration-300" />
-        </div>
+  <Link to="/" className="flex items-center gap-3 w-fit mb-4">
+    <img
+      src={images.awanlogo}
+      alt="Awanio Logo"
+      className="w-10 sm:w-12 md:w-14 object-contain transition-all duration-300"
+    />
+    <span className="text-2xl sm:text-3xl font-bold font-montserrat text-[#1E1E1E] dark:text-white tracking-wide">
+      Awanio
+    </span>
+  </Link>
+</div>
 
         {/* Explore Us */}
         <div>
