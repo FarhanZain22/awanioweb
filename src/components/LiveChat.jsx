@@ -211,7 +211,7 @@ return (
    </>
   )}
   </div>
-  ) // Tanda kurung penutup yang membungkus seluruh widget chat
+  )
  )}
  </>
 );

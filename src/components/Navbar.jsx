@@ -127,9 +127,17 @@ const Navbar = () => {
       {/* ====================== MAIN NAVBAE ====================== */}
       <nav className="w-full flex items-center h-20 px-6 sm:px-10 lg:px-20 justify-between bg-white dark:bg-gray-900 transition-colors duration-300">
         {/* LOGO */}
-        <Link to="/" onClick={closeMenu}>
-          <img src={images.awanlogo} alt="Logo" className="w-24 sm:w-28 cursor-pointer" />
+        <Link to="/" onClick={closeMenu} className="flex items-center gap-2">
+          <img
+            src={images.awanlogo}
+            alt="Awanio Logo"
+            className="w-10 sm:w-12 md:w-14 object-contain"
+          />
+          <span className="text-xl sm:text-4xl font-bold font-montserrat text-[#1E1E1E] dark:text-white tracking-wide">
+            Awanio
+          </span>
         </Link>
+
 
         {/* MENU DESKTOP */}
         <div className="hidden lg:flex items-center gap-6 ml-auto">
