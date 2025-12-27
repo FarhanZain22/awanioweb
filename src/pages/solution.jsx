@@ -78,11 +78,9 @@ const Solution = () => {
       <Navbar active="solution" />
 
       {/* ========== MAIN CONTENT ========== */}
-      {/* Tambahkan dark:bg-gray-900 agar tidak ada celah putih */}
       <main className="transition-colors duration-300 dark:bg-gray-900">
         {/* ========== HERO SECTION ========== */}
         <section>
-          {/* Gambar Hero tidak perlu diubah, teks di atasnya sudah putih */}
           <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[640px] bg-cover bg-center">
             {/* Background Image */}
             <img src={images.solutionHero} alt="Awanio Solution Hero" className="absolute inset-0 w-full h-full object-cover" />
@@ -96,7 +94,6 @@ const Solution = () => {
         </section>
 
         {/* ========== CLOUD ENABLER SECTION ========== */}
-        {/* Background section: Putih abu -> Abu gelap */}
         <section className="bg-[#F8F9FB] dark:bg-gray-900 pb-20 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto pt-20">
             {/* Title & Subtitle */}
@@ -105,7 +102,7 @@ const Solution = () => {
               <p className="text-[#555] dark:text-gray-400 text-[16px] mt-2 transition-colors">{text.cloudSubtitle}</p>
             </div>
 
-            {/* Content Box: Putih -> Abu medium */}
+            {/* Content Box */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-10 transition-colors duration-300 shadow-sm dark:shadow-none">
               {/* ========== PRIVATE CLOUD ========== */}
               <div className="mb-12">

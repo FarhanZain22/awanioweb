@@ -2,17 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useLanguage } from "../Context/LanguageContext";
+import { Link } from "react-router-dom";
 
-// Import background images
+// Images
 import heroBg from "../assets/image-product/productHero.png";
-import bgHyper from "../assets/image-product/bg-hyper.png";
-import bgPlatform from "../assets/image-product/bg-platform.png";
-import bgDashboard from "../assets/image-product/bg-dashboard.png";
 import iconCost from "../assets/image-product/cost.png";
 import iconImprove from "../assets/image-product/improve.png";
 import iconSeamless from "../assets/image-product/seamless.png";
 import iconSimplifies from "../assets/image-product/simplifies.png";
-import bgExplore from "../assets/image-product/bg-explore.png";
 import iconHcl from "../assets/image-product/hyper.png";
 import iconPlatform from "../assets/image-product/platform.png";
 import iconDashboard from "../assets/image-product/dashboard.png";
@@ -23,115 +20,84 @@ const Product = () => {
   const translations = {
     ID: {
       heroTitle: "Awanio Cloud Enabler Platform",
-      heroDesc: "Hadirkan Kekuatan Cloud ke Ujung Jari Anda dan ubah infrastruktur IT Anda menjadi siap cloud.",
+      heroDesc:
+        "Hadirkan Kekuatan Cloud di ujung jari Anda dan ubah infrastruktur TI Anda menjadi cloud-ready.",
       exploreTitle: "Jelajahi Produk Awanio",
-      exploreDesc: "Mulailah evolusi teknologi mutakhir bersama Awanio dan definisikan ulang lanskap digital Anda dengan gaya tak tertandingi dalam satu solusi.",
+      exploreDesc:
+        "Mulailah evolusi teknologi mutakhir bersama Awanio dan definisikan kembali lanskap digital Anda dengan gaya yang tak tertandingi dalam satu solusi kami.",
       exploreCards: [
-        {
-          title: "Integrasi Mulus",
-          desc: "Layanan Awanio memungkinkan bisnis memanfaatkan keuntungan dari berbagai layanan cloud sambil mempertahankan satu konsol manajemen terpadu.",
-          icon: iconSeamless,
-        },
-        {
-          title: "Sederhanakan infrastruktur cloud",
-          desc: "Awanio menyederhanakan pengelolaan infrastruktur cloud yang kompleks, mengurangi kerumitan mengelola berbagai alat orkestrasi IT.",
-          icon: iconSimplifies,
-        },
-        {
-          title: "Kontrol Biaya",
-          desc: "Awanio dapat menghemat biaya dengan memberikan pandangan komprehensif tentang semua sumber daya cloud, memungkinkan bisnis mengidentifikasi dan menghilangkan sumber daya yang kurang dimanfaatkan.",
-          icon: iconCost,
-        },
-        {
-          title: "Tingkatkan standarisasi",
-          desc: "Awanio menyediakan satu platform untuk mengelola berbagai alat orkestrasi IT, memungkinkan bisnis menegakkan standar operasi yang konsisten.",
-          icon: iconImprove,
-        },
+        { title: "Integrasi Mulus", desc: "Layanan Awanio memungkinkan perusahaan untuk memanfaatkan manfaat dari berbagai layanan cloud sambil mempertahankan satu konsol manajemen terpadu.", icon: iconSeamless },
+        { title: "Sederhanakan Infrastruktur", desc: "Awanio menyederhanakan pengelolaan infrastruktur cloud yang kompleks, mengurangi kompleksitas pengelolaan berbagai alat orkestrasi TI.", icon: iconSimplifies },
+        { title: "Kontrol Biaya", desc: "Awanio dapat menghemat biaya dengan memberikan pandangan komprehensif terhadap seluruh sumber daya cloud, memungkinkan mereka mengidentifikasi dan menghilangkan sumber daya yang kurang dimanfaatkan.", icon: iconCost },
+        { title: "Standarisasi Operasi", desc: "Awanio menyediakan platform tunggal untuk mengelola beberapa alat orkestrasi TI, yang memungkinkan bisnis menerapkan standar operasi yang konsisten di seluruh infrastruktur cloud mereka.", icon: iconImprove },
       ],
       hciTitle: "Awanio Hyper Converged Infrastructure (HCI)",
-      hciDesc:
-        "Mendobrak silo, Awanio HCI membangun jembatan efisiensi yang mulus dalam lanskap digital. Di mana inovasi bertemu integrasi, lepaskan kekuatan untuk mendefinisikan ulang masa depan IT Anda.",
+      hciDesc: "Dengan mendobrak silo, Awanio HCI membangun jembatan efisiensi tanpa batas dalam lanskap digital. Ketika inovasi bertemu dengan integrasi, lepaskan kekuatan untuk mendefinisikan ulang masa depan TI Anda.",
       hciCards: [
-        { title: "Performa Luar Biasa", desc: "Awanio HCI memberikan performa luar biasa dengan kemampuan untuk menyekalakan sumber daya komputasi, penyimpanan, dan jaringan sesuai permintaan." },
-        { title: "Tangkas dan Dapat Diskalakan", desc: "Awanio HCI adalah solusi fleksibel dan dapat diskalakan yang beradaptasi dengan kebutuhan bisnis yang terus berubah." },
-        { title: "Efisiensi Biaya", desc: "Awanio HCI memberikan penghematan biaya dengan pendekatan infrastruktur all-in-one yang mengurangi biaya perangkat keras & lisensi." },
-        { title: "Terpercaya dan Andal", desc: "Awanio HCI sangat andal dan dapat digunakan di berbagai lingkungan dengan aman." },
+        { title: "Performa Luar Biasa", desc: "Awanio HCI memberikan kinerja luar biasa dengan kemampuan untuk menskalakan sumber daya komputasi, penyimpanan, dan jaringan sesuai permintaan." },
+        { title: "Hemat Biaya", desc: "Awanio HCI memberikan penghematan biaya dengan pendekatan infrastruktur menyeluruh yang mengurangi biaya perangkat keras, pemeliharaan, dan perizinan." },
+        { title: "Tangkas dan terukur", desc: "Awanio HCI adalah solusi fleksibel dan terukur yang dapat diterapkan di berbagai lingkungan dan mudah disesuaikan dengan perubahan kebutuhan bisnis." },
+        { title: "Terpercaya dan dapat diandalkan", desc: "Awanio HCI memiliki rekam jejak yang terbukti dalam memberikan kinerja dan keandalan yang sangat penting, didukung oleh dukungan teknis ahli dan jaringan mitra global." },
       ],
       platformTitle: "Awanio Platform",
       platformDesc: "Antarmuka bagi pelanggan akhir untuk menikmati layanan cloud.",
       platformCards: [
-        { title: "Compute", desc: "Infrastructure as a Service (IaaS) yang disediakan oleh Awanio CEP untuk membuat infrastruktur berbasis VM." },
-        { title: "Volumes", desc: "Penyimpanan SSD/HDD yang terlampir ke VM dengan multi-replikasi di seluruh server." },
-        { title: "Bare Metal", desc: "Penyediaan bare metal khusus dan pengaturan otomatis untuk pengiriman cepat." },
-        { title: "Organization", desc: "Manajemen pengguna tingkat lanjut, grup, dan kebijakan IAM." },
-        { title: "Billing", desc: "Mesin penagihan + integrasi gateway pembayaran untuk penggunaan perusahaan." },
-        { title: "Kubernetes as a Service", desc: "Penyediaan klaster otomatis untuk penyebaran Kubernetes yang cepat." },
+        { title: "Compute", desc: "Infrastructure as a Service (IaaS) disediakan oleh CEP Awanio untuk menciptakan infrastruktur sesuai kebutuhan pelanggan dalam bentuk Virtual Machine (VM)." },
+        { title: "Volumes", desc: "Ini adalah penyimpanan SSD/HDD berbasis jaringan yang melekat pada VM sebagai perangkat penyimpanan tambahan. Semua data disimpan di perangkat keras yang terpisah dari VM dan direplikasi beberapa kali di server berbeda." },
+        { title: "Bare Metal", desc: "Sebuah layanan yang mengelola server bare metal khusus dengan mengotomatisasi proses awal pengaturan dan konfigurasi untuk meningkatkan waktu pengiriman tumpukan." },
+        { title: "Organization", desc: "Layanan ini memiliki manajemen pengguna dan organisasi tingkat lanjut, serta kebijakan peran akses (IAM). Ini akan membantu perusahaan mengelola peran akses ke sumber daya yang ditunjuk." },
+        { title: "Billing", desc: "CEP juga mencakup integrasi mesin penagihan dan payment gateway (PG). Hal ini dapat diterapkan untuk mempermudah proses pembayaran menurut perusahaan PG." },
+        { title: "Kubernetes as a Service", desc: "Layanan yang mengatur bidang kendali berbasis container, menyediakan dan menyebarkan cluster, serta mengotomatisasi tugas sehingga pelanggan dapat meluncurkan cluster Kubernetes dalam hitungan menit." },
       ],
       dashTitle: "Awanio Dashboard",
-      dashDesc: "Antarmuka untuk mengelola pengalaman keseluruhan di seluruh platform.",
+      dashDesc: "Antarmuka untuk mengelola keseluruhan pengalaman di seluruh platform.",
       dashCards: [
-        { title: "Catalogue", desc: "Kelola data OS & image untuk membuat VM dan Bare Metal." },
-        { title: "Machine", desc: "Kelola Bare Metal: perbarui, hapus, dan konfigurasi sumber daya." },
-        { title: "Inventory", desc: "Lacak mesin/stok bare-metal yang tersedia untuk pengguna CEP." },
-        { title: "Price", desc: "Kelola spesifikasi harga untuk VM, Bare Metal, Kubernetes, dan lainnya." },
-        { title: "Invoice", desc: "Lihat + cetak data penagihan dalam format kertas atau PDF." },
-        { title: "Voucher", desc: "Kelola data voucher kredit pengguna." },
+        { title: "Catalogue", desc: "Fitur katalog komputasi digunakan untuk mengelola sistem operasi dan data gambar yang akan digunakan untuk membuat Mesin Virtual dan Bare Metal." },
+        { title: "Machine", desc: "Fitur ini memungkinkan admin untuk mengelola layanan Bare Metal, seperti: melihat, memperbarui, dan menghapus data bare metal yang dibuat oleh pengguna di CEP Awanio." },
+        { title: "Inventory", desc: "Bare Metal Inventory, merupakan fitur untuk mengelola data mesin/inventory bare metal yang tersedia, sehingga dapat digunakan oleh pengguna di CEP." },
+        { title: "Price", desc: "Fitur harga digunakan untuk mengelola data spesifikasi dengan paket harga yang akan digunakan untuk pembuatan Mesin Virtual, Bare Metal, Kubernetes, dan layanan lainnya." },
+        { title: "Invoice", desc: "Invoice merupakan fitur untuk melihat data billing yang ada untuk pemesanan/menggunakan Awanio CEP. Admin dapat mencetak invoice langsung ke kertas atau ke dokumen PDF." },
+        { title: "Voucher", desc: "Fitur voucher digunakan untuk mengelola data voucher yang merupakan tambahan nominal pulsa pengguna." },
       ],
     },
     EN: {
       heroTitle: "Awanio Cloud Enabler Platform",
       heroDesc: "Bring The Power of The Cloud to Your Fingertips and transforms your IT infrastructure to become cloud-ready.",
       exploreTitle: "Explore Awanio Products",
-      exploreDesc: "Embark on a cutting-edge technological evolution with Awanio and redefine your digital landscape in unparalleled style within a single solution.",
+      exploreDesc: "Embark on a cutting-edge technological evolution with Awanio and redefine your digital landscape in unparalleled style within a single solution us.",
       exploreCards: [
-        {
-          title: "Seamless Integration",
-          desc: "Awanio service allows businesses to leverage the benefits of different cloud services while maintaining a single, unified management console.",
-          icon: iconSeamless,
-        },
-        {
-          title: "Simplifies complex cloud infrastructures",
-          desc: "Awanio simplifies the management of complex cloud infrastructures, reducing the complexity of managing multiple IT orchestration tools.",
-          icon: iconSimplifies,
-        },
-        {
-          title: "Cost Control",
-          desc: "Awanio can save costs by providing a comprehensive view of all cloud resources, enabling businesses to identify and eliminate underutilized resources.",
-          icon: iconCost,
-        },
-        {
-          title: "Improve standardization",
-          desc: "Awanio provides a single platform for managing multiple IT orchestration tools, enabling businesses to enforce a consistent standard of operations.",
-          icon: iconImprove,
-        },
+        { title: "Seamless Integration", desc: "Awanio service allows businesses to leverage the benefits of different cloud services while maintaining a single, unified management console.", icon: iconSeamless },
+        { title: "Simplified Infrastructure", desc: "Awanio simplifies the management of complex cloud infrastructures, reducing the complexity of managing multiple IT orchestration tools.", icon: iconSimplifies },
+        { title: "Cost Control", desc: "Awanio can save costs by providing a comprehensive view of all cloud resources, enabling them to identify and eliminate underutilized resources.", icon: iconCost },
+        { title: "Standardization", desc: "Awanio provides a single platform for managing multiple IT orchestration tools, enabling businesses to enforce a consistent standard of operations across their cloud infrastructure.", icon: iconImprove },
       ],
       hciTitle: "Awanio Hyper Converged Infrastructure (HCI)",
       hciDesc: "Breaking down silos, Awanio HCI builds bridges of seamless efficiency in the digital landscape. Where innovation meets integration, unleash the power to redefine your IT future.",
       hciCards: [
-        { title: "Outstanding Performance", desc: "Awanio HCI delivers exceptional performance with the ability to scale compute, storage, and networking resources on demand." },
-        { title: "Agile and Scalable", desc: "Awanio HCI is a flexible and scalable solution that adapts to changing business needs." },
-        { title: "Cost Efficient", desc: "Awanio HCI provides cost savings with its all-in-one infrastructure approach that reduces hardware & licensing costs." },
-        { title: "Trusted and Reliable", desc: "Awanio HCI is highly reliable and can be deployed across multiple environments securely." },
+        { title: "Outstanding Perfomance", desc: "SAwanio HCI delivers exceptional performance with the ability to scale compute, storage, and networking resources on demand." },
+        { title: "Agile and scalable", desc: "Awanio HCI is a flexible and scalable solution that can be deployed in a variety of environments and easily adapted to changing business needs." },
+        { title: "Cost Efficient", desc: "Awanio HCI provides cost savings with its all-in-one approach to infrastructure that reduces hardware, maintenance, and licensing costs." },
+        { title: "Trusted and reliable", desc: "Awanio HCI has a proven track record of delivering mission-critical performance and reliability, backed by expert technical support and a global network of partners." },
       ],
       platformTitle: "Awanio Platform",
-      platformDesc: "The interface for end-customers to enjoy the cloud service.",
+      platformDesc: "The interface for end-customers to enjoy the cloud service",
       platformCards: [
-        { title: "Compute", desc: "Infrastructure as a Service (IaaS) provided by Awanio CEP to create VM-based infrastructure." },
-        { title: "Volumes", desc: "SSD/HDD storage attached to VM with multi-replication across servers." },
-        { title: "Bare Metal", desc: "Dedicated bare metal provisioning and automated setup for fast delivery." },
-        { title: "Organization", desc: "Advanced user, group, and IAM policy management." },
-        { title: "Billing", desc: "Billing engine + payment gateway integration for enterprise use." },
-        { title: "Kubernetes as a Service", desc: "Automated cluster provisioning for fast Kubernetes deployment." },
+        { title: "Compute", desc: "Infrastructure as a Service (IaaS) provided by Awanio's CEP to create infrastructure according to customers` needs in the form of a Virtual Machine (VM)." },
+        { title: "Volumes", desc: "This is a network-based SSD/HDD storage that attached to a VM as additional storage device. All data is stored on hardware separated from VM and replicated multiple times across different servers." },
+        { title: "Bare Metal", desc: "A service that manages dedicated bare metal servers by automating the initial process of setup and configuration to improve the stack delivery times." },
+        { title: "Organization", desc: "This service has an advance users and organization management, and access role policy (IAM). It will help enterprise manage access role to the designated resource." },
+        { title: "Billing", desc: "The CEP also includes billing engine and payment gateway (PG) integration. It can be implemented to simplify the payment process according to the enterprise PG." },
+        { title: "Kubernetes as a Service", desc: "Service that orchestrates a container-based control plane, provisions and deploys clusters, and automates tasks so customer can launch a Kubernetes cluster within minutes." },
       ],
       dashTitle: "Awanio Dashboard",
       dashDesc: "The interface to administer the overall experience across the platform.",
       dashCards: [
-        { title: "Catalogue", desc: "Manage OS & image data for creating VMs and Bare Metal." },
-        { title: "Machine", desc: "Manage Bare Metal: update, delete, and configure resources." },
-        { title: "Inventory", desc: "Track available bare-metal machines/stock for CEP users." },
-        { title: "Price", desc: "Manage price specs for VM, Bare Metal, Kubernetes, and more." },
-        { title: "Invoice", desc: "View + print billing data in paper or PDF format." },
-        { title: "Voucher", desc: "Manage user credit voucher data." },
+        { title: "Catalogue", desc: "The compute catalog feature is used to manage operating system and image data that will be used for creating Virtual Machines and Bare Metal." },
+        { title: "Machine", desc: "This feature enable admin to manage Bare Metal service, such as: view, update, and delete the bare metal data created by the user in CEP Awanio." },
+        { title: "Inventory", desc: "Bare Metal Inventory, is the feature to manage available bare metal machine/inventory data, so that they can be used by users in CEP." },
+        { title: "Price", desc: "Price feature is used to manage specification data with a price package that will be used for creating Virtual Machines, Bare Metal, Kubernetes, and other services." },
+        { title: "Invoice", desc: "Invoice is a feature to view existing billing data for ordering/using Awanio CEP. Admin can print the invoices directly to paper or to PDF document." },
+        { title: "Voucher", desc: "The vouchers feature is used to manage voucher data, which is an additional nominal for user credit." },
       ],
     },
   };
@@ -142,113 +108,179 @@ const Product = () => {
     <>
       <Navbar active="product" />
 
-      {/* Container Utama: Tambahkan dark:bg-gray-900 */}
-      <div className="w-full overflow-hidden transition-colors duration-300 dark:bg-gray-900">
-        {/* ======================= HERO SECTION ======================= */}
-        {/* Tidak berubah karena text sudah putih dan background image menutupi */}
+      <main className="transition-colors duration-300 dark:bg-gray-900">
+        {/* HERO */}
         <section>
-          <div className=" relative w-full h-[380px] sm:h-[480px] lg:h-[640px] bg-cover bg-center">
-            <img src={heroBg} alt="Awanio product Hero" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-              <h1 className="text-white font-bold text-3xl sm:text-4xl lg:text-6xl mb-2 sm:mb-4">{text.heroTitle}</h1>
-              <p className="text-gray-200 text-sm sm:text-lg lg:text-xl max-w-[600px] leading-relaxed">{text.heroDesc}</p>
+          <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[640px]">
+            {/* Background Image */}
+            <img
+              src={heroBg}
+              alt="Awanio Product Hero"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40"></div>
+
+            {/* Content */}
+            <div className="relative z-10 max-w-[1440px] mx-auto px-6 h-full flex flex-col justify-center">
+              <h1 className="text-white font-bold text-4xl lg:text-6xl leading-tight">
+                {text.heroTitle}
+              </h1>
+
+              <p className="text-gray-200 text-lg max-w-[600px] mt-4">
+                {text.heroDesc}
+              </p>
+
+              {/* Button */}
+              <div className="mt-8">
+                <Link to="/demo">
+                <button className="
+                    px-16 py-4
+                    text-white text-xl font-semibold
+                    rounded-full
+                    bg-[#0A5EA8]
+
+                    shadow-[0_6px_0_#063B6A]
+                    transition-all duration-100 ease-out
+
+                    active:translate-y-[4px]
+                    active:shadow-none"
+                >
+                  Request Demo
+                </button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ======================= PRODUCTS SECTION ======================= */}
-        {/* Background Image dihilangkan saat dark mode (dark:bg-none) diganti warna solid (dark:bg-gray-900) */}
-        <section className="relative w-full bg-cover bg-center py-16 sm:py-20 lg:py-24 transition-colors duration-300 dark:bg-gray-900 dark:bg-none" style={{ backgroundImage: `url(${bgExplore})` }}>
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            {/* TITLE */}
-            <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-              <h2 className="text-[28px] sm:text-[32px] font-bold text-[#1E1E1E]  transition-colors">{text.exploreTitle}</h2>
-              <p className="max-w-[700px] mx-auto text-black text-sm sm:text-base leading-relaxed mt-2 transition-colors">{text.exploreDesc}</p>
+        {/* EXPLORE */}
+        <section className="bg-white dark:bg-gray-900 py-24 transition-colors duration-300">
+          <div className="max-w-[1200px] mx-auto px-6">
+            {/* Title */}
+            <div className="text-center mb-20">
+              <h2 className="text-[36px] font-bold text-[#00ADEE] dark:text-[#00ADEE]">
+                {text.exploreTitle}
+              </h2>
+              <p className="text-gray-500 dark:text-gray-400 max-w-[760px] mx-auto mt-4 leading-relaxed">
+                {text.exploreDesc}
+              </p>
             </div>
 
-            {/* CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {/* Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14">
               {text.exploreCards.map((item, i) => (
-                <div key={i} className="bg-white dark:bg-gray-800 rounded-3xl p-6 sm:p-8 shadow-[0_8px_25px_rgba(0,0,0,0.08)] hover:shadow-xl transition-all duration-300">
-                  {/* ICON */}
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-linear-to-br from-blue-600 to-cyan-400 flex items-center justify-center p-4 shadow-md">
-                    <img src={item.icon} alt={item.title} className="w-10 h-10 object-contain" />
-                  </div>
+                <div key={i} className="text-left">
+                  {/* Icon */}
+                  <img
+                    src={item.icon}
+                    alt={item.title}
+                    className="w-14 h-14 mb-6"
+                  />
 
-                  {/* TITLE: Biru Tua -> Putih/Biru Terang */}
-                  <h3 className="font-semibold text-[17px] text-[#1C3C78] dark:text-blue-300 text-center mb-2 transition-colors">{item.title}</h3>
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-[#0B1F44] dark:text-white mb-3">
+                    {item.title}
+                  </h3>
 
-                  {/* DESCRIPTION: Abu -> Abu Terang */}
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed text-center transition-colors">{item.desc}</p>
+                  {/* Description */}
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ======================= HCI SECTION ======================= */}
-        {/* Section ini sudah "Dark Theme" secara default (text putih), jadi aman */}
-        <section className="relative w-full py-20 bg-cover bg-center" style={{ backgroundImage: `url(${bgHyper})` }}>
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-14 max-w-[480px]">
-              <img src={iconHcl} alt="HCI" className="w-20 h-20 mb-4 opacity-90" />
-              <h2 className="text-[28px] sm:text-[32px] font-bold text-white mb-4">{text.hciTitle}</h2>
-              <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{text.hciDesc}</p>
-            </div>
+        {/* HCI */}
+        <section className="bg-white dark:bg-gray-900 py-20 transition-colors">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <img src={iconHcl} className="w-20 h-20 mb-4" />
+            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white">
+              {text.hciTitle}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-[600px]">
+              {text.hciDesc}
+            </p>
 
-            <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 gap-8 mt-12">
               {text.hciCards.map((item, i) => (
-                <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-2">{item.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{item.desc}</p>
+                <div
+                  key={i}
+                  className="bg-[#F8F9FB] dark:bg-gray-800 p-6 rounded-2xl transition-colors"
+                >
+                  <h3 className="text-[#00ADEE] dark:text-[#00ADEE] font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ======================= PLATFORM SECTION ======================= */}
-        {/* Aman untuk Dark Mode */}
-        <section className="relative w-full py-20 bg-cover bg-center" style={{ backgroundImage: `url(${bgPlatform})` }}>
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <img src={iconPlatform} alt="Platform" className="w-20 h-20 mb-4 opacity-90" />
-              <h2 className="text-[28px] sm:text-[32px] font-bold text-white">{text.platformTitle}</h2>
-              <p className="text-gray-300 text-sm sm:text-base max-w-[600px] leading-relaxed mt-2">{text.platformDesc}</p>
-            </div>
+        {/* PLATFORM */}
+        <section className="bg-white dark:bg-gray-900 py-20 transition-colors">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <img src={iconPlatform} className="w-20 h-20 mb-4" />
+            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white">
+              {text.platformTitle}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-[600px]">
+              {text.platformDesc}
+            </p>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {text.platformCards.map((item, i) => (
-                <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-2">{item.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{item.desc}</p>
+                <div
+                  key={i}
+                  className="bg-[#F8F9FB] dark:bg-gray-800 p-6 rounded-2xl transition-colors"
+                >
+                  <h3 className="text-[#00ADEE] dark:text-[#00ADEE] font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ======================= DASHBOARD SECTION ======================= */}
-        {/* Aman untuk Dark Mode */}
-        <section className="relative w-full py-20 bg-cover bg-center" style={{ backgroundImage: `url(${bgDashboard})` }}>
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <img src={iconDashboard} alt="Dashboard" className="w-20 h-20 mb-4 opacity-90" />
-              <h2 className="text-[28px] sm:text-[32px] font-bold text-white">{text.dashTitle}</h2>
-              <p className="text-gray-300 text-sm sm:text-base max-w-[600px] leading-relaxed mt-2">{text.dashDesc}</p>
-            </div>
+        {/* DASHBOARD */}
+        <section className="bg-white dark:bg-gray-900 py-20 transition-colors">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <img src={iconDashboard} className="w-20 h-20 mb-4" />
+            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white">
+              {text.dashTitle}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-[600px]">
+              {text.dashDesc}
+            </p>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               {text.dashCards.map((item, i) => (
-                <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-2">{item.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{item.desc}</p>
+                <div
+                  key={i}
+                  className="bg-[#F8F9FB] dark:bg-gray-800 p-6 rounded-2xl transition-colors"
+                >
+                  <h3 className="text-[#00ADEE] dark:text-[#00ADEE] font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
-      </div>
+      </main>
 
       <Footer active="product" />
     </>

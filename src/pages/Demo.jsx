@@ -57,17 +57,43 @@ const Demo = () => {
     city: "",
   });
 
+  // STATE UNTUK ERROR VALIDASI
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
+    // Hapus status error saat user mulai mengetik
+    if (errors[e.target.name]) {
+      setErrors({ ...errors, [e.target.name]: false });
+    }
+  };
+
+  // FUNGSI VALIDASI
+  const validate = () => {
+    let newErrors = {};
+    if (!form.name.trim()) newErrors.name = true;
+    if (!form.email.trim()) newErrors.email = true;
+    if (!form.company.trim()) newErrors.company = true;
+    if (!form.job.trim()) newErrors.job = true;
+    if (!form.phone.trim()) newErrors.phone = true;
+    if (!form.city.trim()) newErrors.city = true;
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // ======================
   // Submit to Backend API
   // ======================
   const handleSubmit = async () => {
+    if (!validate()) {
+      toast.error(language === "ID" ? "Harap lengkapi semua field yang ditandai" : "Please fill in all required fields");
+      return;
+    }
+
     try {
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/api/request-demo`,
@@ -81,9 +107,8 @@ const Demo = () => {
       const data = await res.json();
 
       if (data.success) {
-        toast.success("Request demo berhasil dikirim!");
+        toast.success(language === "ID" ? "Request demo berhasil dikirim!" : "Demo request sent successfully!");
 
-        // reset form
         setForm({
           name: "",
           email: "",
@@ -92,12 +117,13 @@ const Demo = () => {
           phone: "",
           city: "",
         });
+
+        setErrors({});
       } else {
-        toast.error("Gagal mengirim. Coba lagi.");
+        toast.error(language === "ID" ? "Gagal mengirim. Coba lagi." : "Failed to send. Try again.");
       }
     } catch (err) {
-      console.error(err);
-      toast.error("Terjadi masalah pada server.");
+      toast.error(language === "ID" ? "Terjadi masalah pada server." : "Server error occurred.");
     }
   };
 
@@ -161,7 +187,7 @@ const Demo = () => {
                 placeholder={text.pName}
                 value={form.name}
                 onChange={handleChange}
-                className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors"
+                className={`border ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors`}
               />
 
               <input
@@ -170,7 +196,7 @@ const Demo = () => {
                 placeholder={text.pEmail}
                 value={form.email}
                 onChange={handleChange}
-                className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors"
+                className={`border ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors`}
               />
 
               <input
@@ -179,7 +205,7 @@ const Demo = () => {
                 placeholder={text.pCompany}
                 value={form.company}
                 onChange={handleChange}
-                className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors"
+                className={`border ${errors.company ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors`}
               />
 
               <input
@@ -188,7 +214,7 @@ const Demo = () => {
                 placeholder={text.pJob}
                 value={form.job}
                 onChange={handleChange}
-                className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors"
+                className={`border ${errors.job ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors`}
               />
 
               <input
@@ -197,7 +223,7 @@ const Demo = () => {
                 placeholder={text.pPhone}
                 value={form.phone}
                 onChange={handleChange}
-                className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors"
+                className={`border ${errors.phone ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors`}
               />
 
               <input
@@ -206,12 +232,13 @@ const Demo = () => {
                 placeholder={text.pCity}
                 value={form.city}
                 onChange={handleChange}
-                className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors"
+                className={`border ${errors.city ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00539B] dark:focus:border-[#00ADEE] transition-colors`}
               />
 
               <label className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300 mt-2 cursor-pointer transition-colors">
                 <input
                   type="checkbox"
+                  required
                   className="mt-1 cursor-pointer accent-[#00539B] dark:accent-[#00ADEE]"
                 />
                 <span>
