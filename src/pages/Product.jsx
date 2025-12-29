@@ -108,47 +108,28 @@ const Product = () => {
     <>
       <Navbar active="product" />
 
-      <main className="bg-slate-50 transition-colors duration-300 dark:bg-[#0B1221]">
+      <main className="bg-white transition-colors duration-300 dark:bg-[#0B1221]">
         {/* HERO */}
         <section>
           <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[640px]">
-            {/* Background Image */}
             <img
               src={heroBg}
               alt="Awanio Product Hero"
               className="absolute inset-0 w-full h-full object-cover"
             />
-
-            {/* Overlay */}
             <div className="absolute inset-0 bg-black/40"></div>
-
-            {/* Content */}
             <div className="relative z-10 max-w-[1440px] mx-auto px-6 h-full flex flex-col justify-center">
               <h1 className="text-white font-bold text-4xl lg:text-6xl leading-tight">
                 {text.heroTitle}
               </h1>
-
               <p className="text-gray-200 text-lg max-w-[600px] mt-4">
                 {text.heroDesc}
               </p>
-
-              {/* Button */}
               <div className="mt-8">
                 <Link to="/demo">
-                <button className="
-                    px-16 py-4
-                    text-white text-xl font-semibold
-                    rounded-full
-                    bg-[#0A5EA8]
-
-                    shadow-[0_6px_0_#063B6A]
-                    transition-all duration-100 ease-out
-
-                    active:translate-y-[4px]
-                    active:shadow-none"
-                >
-                  Request Demo
-                </button>
+                  <button className="px-16 py-4 text-white text-xl font-semibold rounded-full bg-[#0A5EA8] shadow-[0_6px_0_#063B6A] transition-all duration-100 ease-out active:translate-y-[4px] active:shadow-none">
+                    Request Demo
+                  </button>
                 </Link>
               </div>
             </div>
@@ -156,9 +137,8 @@ const Product = () => {
         </section>
 
         {/* EXPLORE */}
-        <section className="bg-slate-50 dark:bg-[#0B1221] py-24 transition-colors duration-300">
+        <section className="bg-white dark:bg-[#0B1221] py-24 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto px-6">
-            {/* Title */}
             <div className="text-center mb-20">
               <h2 className="text-[36px] font-bold text-[#00ADEE] dark:text-[#00ADEE]">
                 {text.exploreTitle}
@@ -167,24 +147,13 @@ const Product = () => {
                 {text.exploreDesc}
               </p>
             </div>
-            
-            {/* Items */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14">
               {text.exploreCards.map((item, i) => (
                 <div key={i} className="text-left">
-                  {/* Icon */}
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    className="w-14 h-14 mb-6"
-                  />
-
-                  {/* Title */}
+                  <img src={item.icon} alt={item.title} className="w-14 h-14 mb-6" />
                   <h3 className="text-lg font-bold text-[#0B1F44] dark:text-white mb-3">
                     {item.title}
                   </h3>
-
-                  {/* Description */}
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
                     {item.desc}
                   </p>
@@ -194,13 +163,12 @@ const Product = () => {
           </div>
         </section>
 
-       {/* --- SECTION PEMBATAS --- */}
-       <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto px-6">
           <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
         </div>
 
         {/* HCI SECTION */}
-        <section className="bg-slate-50 dark:bg-[#0B1221] py-24 transition-colors duration-300">
+        <section className="bg-white dark:bg-[#0B1221] py-24 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto px-6">
             <img src={iconHcl} className="w-20 h-20 mb-6" alt="HCI Icon" />
             <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-2">
@@ -209,28 +177,13 @@ const Product = () => {
             <p className="text-gray-600 dark:text-gray-300 max-w-[600px] mb-12">
               {text.hciDesc}
             </p>
-
             <div className="grid sm:grid-cols-2 gap-8">
               {text.hciCards.map((item, i) => (
-                <div
-                  key={i}
-                  className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group
-                             /* Light Mode */
-                             bg-white border-gray-100 shadow-sm
-                             /* Dark Mode */
-                             dark:bg-[#161F32] dark:border-gray-700/50
-                             /* Hover States */
-                             hover:border-[#00ADEE]/50 hover:shadow-lg"
-                >
-                  {/* Garis Samping Solid (Tanpa Glow) */}
-                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-                  
-                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
+                <div key={i} className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group bg-white border-gray-100 shadow-sm dark:bg-[#161F32] dark:border-gray-700/50 hover:border-[#00ADEE]/50 hover:shadow-lg">
+                  {/* Perbaikan garis samping dengan opacity-0 */}
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -251,27 +204,12 @@ const Product = () => {
             <p className="text-gray-600 dark:text-gray-300 max-w-[600px] mb-12">
               {text.platformDesc}
             </p>
-
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {text.platformCards.map((item, i) => (
-                <div
-                  key={i}
-                  className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group
-                             /* Light Mode */
-                             bg-[#F8F9FB] border-transparent shadow-sm
-                             /* Dark Mode */
-                             dark:bg-[#161F32] dark:border-gray-700/50
-                             /* Hover States */
-                             hover:bg-white dark:hover:bg-[#1C263B] hover:border-[#00ADEE]/50 hover:shadow-lg"
-                >
-                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-                  
-                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
+                <div key={i} className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group bg-[#F8F9FB] border-transparent shadow-sm dark:bg-[#161F32] dark:border-gray-700/50 hover:bg-white dark:hover:bg-[#1C263B] hover:border-[#00ADEE]/50 hover:shadow-lg">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -282,8 +220,8 @@ const Product = () => {
           <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
         </div>
 
-        {/* DASHBOARD SECTION */}
-        <section className="bg-slate-50 dark:bg-[#0B1221] py-24 transition-colors duration-300">
+        {/* DASHBOARD SECTION - Memperbaiki space kosong di atas footer */}
+        <section className="bg-white dark:bg-[#0B1221] py-24 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto px-6">
             <img src={iconDashboard} className="w-20 h-20 mb-6" alt="Dashboard Icon" />
             <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-2">
@@ -292,27 +230,12 @@ const Product = () => {
             <p className="text-gray-600 dark:text-gray-300 max-w-[600px] mb-12">
               {text.dashDesc}
             </p>
-
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {text.dashCards.map((item, i) => (
-                <div
-                  key={i}
-                  className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group
-                             /* Light Mode */
-                             bg-[#F8F9FB] border-transparent shadow-sm
-                             /* Dark Mode */
-                             dark:bg-[#161F32] dark:border-gray-700/50
-                             /* Hover States */
-                             hover:bg-white dark:hover:bg-[#1C263B] hover:border-[#00ADEE]/50 hover:shadow-lg"
-                >
-                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-                  
-                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
+                <div key={i} className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group bg-[#F8F9FB] border-transparent shadow-sm dark:bg-[#161F32] dark:border-gray-700/50 hover:bg-white dark:hover:bg-[#1C263B] hover:border-[#00ADEE]/50 hover:shadow-lg">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
