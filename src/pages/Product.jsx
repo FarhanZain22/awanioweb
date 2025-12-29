@@ -108,7 +108,7 @@ const Product = () => {
     <>
       <Navbar active="product" />
 
-      <main className="transition-colors duration-300 dark:bg-gray-900">
+      <main className="bg-slate-50 transition-colors duration-300 dark:bg-[#0B1221]">
         {/* HERO */}
         <section>
           <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[640px]">
@@ -156,7 +156,7 @@ const Product = () => {
         </section>
 
         {/* EXPLORE */}
-        <section className="bg-white dark:bg-gray-900 py-24 transition-colors duration-300">
+        <section className="bg-slate-50 dark:bg-[#0B1221] py-24 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto px-6">
             {/* Title */}
             <div className="text-center mb-20">
@@ -167,7 +167,7 @@ const Product = () => {
                 {text.exploreDesc}
               </p>
             </div>
-
+            
             {/* Items */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14">
               {text.exploreCards.map((item, i) => (
@@ -194,27 +194,41 @@ const Product = () => {
           </div>
         </section>
 
-        {/* HCI */}
-        <section className="bg-white dark:bg-gray-900 py-20 transition-colors">
+       {/* --- SECTION PEMBATAS --- */}
+       <div className="max-w-[1200px] mx-auto px-6">
+          <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
+        </div>
+
+        {/* HCI SECTION */}
+        <section className="bg-slate-50 dark:bg-[#0B1221] py-24 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto px-6">
-            <img src={iconHcl} className="w-20 h-20 mb-4" />
-            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white">
+            <img src={iconHcl} className="w-20 h-20 mb-6" alt="HCI Icon" />
+            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-2">
               {text.hciTitle}
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-[600px]">
+            <p className="text-gray-600 dark:text-gray-300 max-w-[600px] mb-12">
               {text.hciDesc}
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-8 mt-12">
+            <div className="grid sm:grid-cols-2 gap-8">
               {text.hciCards.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-[#F8F9FB] dark:bg-gray-800 p-6 rounded-2xl transition-colors"
+                  className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group
+                             /* Light Mode */
+                             bg-white border-gray-100 shadow-sm
+                             /* Dark Mode */
+                             dark:bg-[#161F32] dark:border-gray-700/50
+                             /* Hover States */
+                             hover:border-[#00ADEE]/50 hover:shadow-lg"
                 >
-                  <h3 className="text-[#00ADEE] dark:text-[#00ADEE] font-semibold">
+                  {/* Garis Samping Solid (Tanpa Glow) */}
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                  
+                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -223,27 +237,39 @@ const Product = () => {
           </div>
         </section>
 
-        {/* PLATFORM */}
-        <section className="bg-white dark:bg-gray-900 py-20 transition-colors">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
+        </div>
+
+        {/* PLATFORM SECTION */}
+        <section className="bg-white dark:bg-[#0B1221] py-24 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto px-6">
-            <img src={iconPlatform} className="w-20 h-20 mb-4" />
-            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white">
+            <img src={iconPlatform} className="w-20 h-20 mb-6" alt="Platform Icon" />
+            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-2">
               {text.platformTitle}
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-[600px]">
+            <p className="text-gray-600 dark:text-gray-300 max-w-[600px] mb-12">
               {text.platformDesc}
             </p>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {text.platformCards.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-[#F8F9FB] dark:bg-gray-800 p-6 rounded-2xl transition-colors"
+                  className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group
+                             /* Light Mode */
+                             bg-[#F8F9FB] border-transparent shadow-sm
+                             /* Dark Mode */
+                             dark:bg-[#161F32] dark:border-gray-700/50
+                             /* Hover States */
+                             hover:bg-white dark:hover:bg-[#1C263B] hover:border-[#00ADEE]/50 hover:shadow-lg"
                 >
-                  <h3 className="text-[#00ADEE] dark:text-[#00ADEE] font-semibold">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                  
+                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -252,27 +278,39 @@ const Product = () => {
           </div>
         </section>
 
-        {/* DASHBOARD */}
-        <section className="bg-white dark:bg-gray-900 py-20 transition-colors">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
+        </div>
+
+        {/* DASHBOARD SECTION */}
+        <section className="bg-slate-50 dark:bg-[#0B1221] py-24 transition-colors duration-300">
           <div className="max-w-[1200px] mx-auto px-6">
-            <img src={iconDashboard} className="w-20 h-20 mb-4" />
-            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white">
+            <img src={iconDashboard} className="w-20 h-20 mb-6" alt="Dashboard Icon" />
+            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-2">
               {text.dashTitle}
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-[600px]">
+            <p className="text-gray-600 dark:text-gray-300 max-w-[600px] mb-12">
               {text.dashDesc}
             </p>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {text.dashCards.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-[#F8F9FB] dark:bg-gray-800 p-6 rounded-2xl transition-colors"
+                  className="relative overflow-hidden p-8 rounded-2xl border transition-all duration-300 group
+                             /* Light Mode */
+                             bg-[#F8F9FB] border-transparent shadow-sm
+                             /* Dark Mode */
+                             dark:bg-[#161F32] dark:border-gray-700/50
+                             /* Hover States */
+                             hover:bg-white dark:hover:bg-[#1C263B] hover:border-[#00ADEE]/50 hover:shadow-lg"
                 >
-                  <h3 className="text-[#00ADEE] dark:text-[#00ADEE] font-semibold">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                  
+                  <h3 className="text-[#00ADEE] font-bold text-lg mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

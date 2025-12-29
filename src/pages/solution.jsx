@@ -1,15 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Card from "../components/Card";
 import Footer from "../components/Footer";
 import images from "../assets";
 import { useLanguage } from "../Context/LanguageContext";
 
 const Solution = () => {
-  // 1. Ambil state bahasa dari Context
   const { language } = useLanguage();
 
-  // 2. Definisikan Kamus Kata (Translations)
   const translations = {
     ID: {
       heroTitle: "Solusi Awanio",
@@ -17,28 +14,34 @@ const Solution = () => {
       cloudTitle: "Cloud Enabler",
       cloudSubtitle: "Awanio memungkinkan solusi cloud end-to-end bagi pelanggan.",
       privateCloudTitle: "Private Cloud",
-      cardSoe: "Badan Usaha Milik Negara (BUMN)",
-      cardDefense: "Institusi Pertahanan",
+      privateCloudCards: [
+        { title: "Badan Usaha Milik Negara (BUMN)", icon: images.state },
+        { title: "Institusi Pertahanan", icon: images.defense },
+      ],
       publicCloudTitle: "Public Cloud",
-      cardIndoCloud: "Penyedia Layanan Cloud Indonesia",
-      cardNethCloud: "Penyedia Layanan Cloud Belanda",
+      publicCloudCards: [
+        { title: "Penyedia Layanan Cloud Indonesia", icon: images.indo },
+        { title: "Penyedia Layanan Cloud Belanda", icon: images.belanda },
+      ],
       hyperTitle: "Transcendent Hyper Converged",
-      hyperDescBold: "Buka potensi penuh Anda dengan Awanio HCI",
-      hyperDescNormal:
-        ", infrastruktur hyper-converged terbaik, kolaborasi antara Awanio CEP dan prinsipal perangkat keras untuk menyediakan satu-satunya solusi HCI bersertifikat TKDN bagi pelanggan.",
-      cardX86: "Arsitektur X86",
-      cardLinuxOne: "IBM LinuxOne",
-      cardPower: "IBM Power",
+      hyperDesc: "Buka potensi penuh Anda dengan Awanio HCI, infrastruktur hyper-converged terbaik, kolaborasi antara Awanio CEP dan prinsipal perangkat keras untuk menyediakan satu-satunya solusi HCI bersertifikat TKDN bagi pelanggan.",
+      hyperCards: [
+        { title: "Arsitektur X86", icon: images.x86 },
+        { title: "IBM LinuxOne", icon: images.ibmlinux },
+        { title: "IBM Power", icon: images.ibmpower },
+      ],
       securityTitle: "Keamanan",
       securityDesc: "Menghadirkan rangkaian layanan keamanan khusus yang eksklusif, disesuaikan untuk memenuhi kebutuhan keamanan unik organisasi.",
-      cardThreat: "Intelijen Ancaman dengan Platform Analisis Data",
-      cardTraffic: "Pemetaan Lalu Lintas & Konektivitas",
-      cardDepth: "Analisis kejadian mendalam dengan informasi metadata",
-      cardCluster: "Manajemen Klaster untuk menyeimbangkan kinerja sistem",
-      cardAutomation: "Pemrosesan playbook otomatisasi untuk mengurangi MTTR",
+      securityCards: [
+        { title: "Intelijen Ancaman dengan Platform Analisis Data", icon: images.intel },
+        { title: "Pemetaan Lalu Lintas & Konektivitas", icon: images.trafic },
+        { title: "Analisis kejadian mendalam dengan informasi metadata", icon: images.linechart },
+        { title: "Manajemen Klaster untuk menyeimbangkan kinerja sistem", icon: images.cluster },
+        { title: "Pemrosesan playbook otomatisasi untuk mengurangi MTTR", icon: images.automation },
+      ],
       dataTitle: "Modernisasi Data",
-      dataDesc: "Migrasikan data Anda ke database berbasis cloud modern dari database lama yang usang atau terisolasi (siloed), termasuk data terstruktur dan tidak terstruktur.",
-      cardDataModern: "Modernisasi Data",
+      dataDesc: "Migrasikan data Anda ke database berbasis cloud modern dari database lama yang usang atau terisolasi (siloed).",
+      dataCards: [{ title: "Modernisasi Data", icon: images.data }]
     },
     EN: {
       heroTitle: "Awanio Solutions",
@@ -46,155 +49,152 @@ const Solution = () => {
       cloudTitle: "Cloud Enabler",
       cloudSubtitle: "Awanio enables an end-to-end cloud solutions for customers.",
       privateCloudTitle: "Private Cloud",
-      cardSoe: "State Owned Enterprise",
-      cardDefense: "Defense Institution",
+      privateCloudCards: [
+        { title: "State Owned Enterprise", icon: images.state },
+        { title: "Defense Institution", icon: images.defense },
+      ],
       publicCloudTitle: "Public Cloud",
-      cardIndoCloud: "Indonesia Cloud Service Provider",
-      cardNethCloud: "Netherland Cloud Service Provider",
+      publicCloudCards: [
+        { title: "Indonesia Cloud Service Provider", icon: images.indo },
+        { title: "Netherland Cloud Service Provider", icon: images.belanda },
+      ],
       hyperTitle: "Transcendent Hyper Converged",
-      hyperDescBold: "Unleash your full potential with Awanio HCI",
-      hyperDescNormal: " the ultimate hyper-converged infrastructure, collaboration between Awanio CEP and hardware Principles to provide customers with the only TKDN-certified HCI solution.",
-      cardX86: "X86 Architecture",
-      cardLinuxOne: "IBM LinuxOne",
-      cardPower: "IBM Power",
+      hyperDesc: "Unleash your full potential with Awanio HCI, the ultimate hyper-converged infrastructure, collaboration between Awanio CEP and hardware Principles to provide customers with the only TKDN-certified HCI solution.",
+      hyperCards: [
+        { title: "X86 Architecture", icon: images.x86 },
+        { title: "IBM LinuxOne", icon: images.ibmlinux },
+        { title: "IBM Power", icon: images.ibmpower },
+      ],
       securityTitle: "Security",
       securityDesc: "Bring you an exclusive range of specialized security services, tailored to meet the unique security requirements of organizations.",
-      cardThreat: "Threat Intel with Data Analytics Platform",
-      cardTraffic: "Traffic & Connectivity Mapping",
-      cardDepth: "In-Depth event analysis with metadata information",
-      cardCluster: "Cluster Management for balancing system performance",
-      cardAutomation: "Automation playbook processing to reduce MTTR",
+      securityCards: [
+        { title: "Threat Intel with Data Analytics Platform", icon: images.intel },
+        { title: "Traffic & Connectivity Mapping", icon: images.trafic },
+        { title: "In-Depth event analysis with metadata information", icon: images.linechart },
+        { title: "Cluster Management for balancing system performance", icon: images.cluster },
+        { title: "Automation playbook processing to reduce MTTR", icon: images.automation },
+      ],
       dataTitle: "Data Modernization",
-      dataDesc: "Migrate your data to modern cloud-based databases from outdated or siloed legacy databases, including structured and unstructured data.",
-      cardDataModern: "Data Modernization",
+      dataDesc: "Migrate your data to modern cloud-based databases from outdated or siloed legacy databases.",
+      dataCards: [{ title: "Data Modernization", icon: images.data }]
     },
   };
 
-  // 3. Pilih teks berdasarkan bahasa yang aktif
   const text = translations[language];
 
   return (
     <>
       <Navbar active="solution" />
 
-      {/* ========== MAIN CONTENT ========== */}
-      <main className="transition-colors duration-300 dark:bg-gray-900">
-        {/* ========== HERO SECTION ========== */}
+      <main className="transition-colors duration-300 bg-white dark:bg-[#0B1221]">
+        
+        {/* HERO SECTION */}
         <section>
-          <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[640px] bg-cover bg-center">
-            {/* Background Image */}
-            <img src={images.solutionHero} alt="Awanio Solution Hero" className="absolute inset-0 w-full h-full object-cover" />
-
-            {/* Text Content */}
-            <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-              <h1 className="text-white font-bold text-3xl sm:text-4xl lg:text-6xl mb-2 sm:mb-4">{text.heroTitle}</h1>
-              <p className="text-gray-200 text-sm sm:text-lg lg:text-xl max-w-[600px] leading-relaxed">{text.heroDesc}</p>
+          <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[640px]">
+            <img src={images.solutionHero} alt="Hero" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="relative z-10 max-w-[1440px] mx-auto px-6 h-full flex flex-col justify-center">
+              <h1 className="text-white font-bold text-4xl lg:text-6xl leading-tight">{text.heroTitle}</h1>
+              <p className="text-gray-200 text-lg max-w-[600px] mt-4">{text.heroDesc}</p>
             </div>
           </div>
         </section>
 
-        {/* ========== CLOUD ENABLER SECTION ========== */}
-        <section className="bg-[#F8F9FB] dark:bg-gray-900 pb-20 transition-colors duration-300">
-          <div className="max-w-[1200px] mx-auto pt-20">
-            {/* Title & Subtitle */}
-            <div className="text-center mb-12">
-              <h2 className="text-[32px] font-bold text-[#1E1E1E] dark:text-white transition-colors">{text.cloudTitle}</h2>
-              <p className="text-[#555] dark:text-gray-400 text-[16px] mt-2 transition-colors">{text.cloudSubtitle}</p>
+        {/* CLOUD ENABLER SECTION */}
+        <section className="py-24 transition-colors">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-[36px] font-bold text-[#00ADEE]">{text.cloudTitle}</h2>
+              <p className="text-gray-500 dark:text-gray-300 mt-4">{text.cloudSubtitle}</p>
             </div>
 
-            {/* Content Box */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-10 transition-colors duration-300 shadow-sm dark:shadow-none">
-              {/* ========== PRIVATE CLOUD ========== */}
-              <div className="mb-12">
-                <h3 className="text-[#1E1E1E] dark:text-gray-100 font-semibold text-lg mb-6 transition-colors">{text.privateCloudTitle}</h3>
-
-                <div className="flex justify-between gap-4">
-                  <Card icon={images.state} title={text.cardSoe} variant="blue" />
-                  <Card icon={images.defense} title={text.cardDefense} variant="blue" />
+            {/* Private & Public Cloud Cards */}
+            {[
+              { title: text.privateCloudTitle, cards: text.privateCloudCards },
+              { title: text.publicCloudTitle, cards: text.publicCloudCards }
+            ].map((group, idx) => (
+              <div key={idx} className={idx === 0 ? "mb-16" : ""}>
+                <h3 className="text-xl font-bold text-[#0B1F44] dark:text-white mb-8 border-l-4 border-[#00ADEE] pl-4">{group.title}</h3>
+                <div className="grid sm:grid-cols-2 gap-8">
+                  {group.cards.map((card, i) => (
+                    <div key={i} className="bg-[#F8F9FB] dark:bg-[#161F32] p-8 rounded-2xl flex items-center gap-6 border border-gray-100 dark:border-gray-700/50 shadow-sm relative overflow-hidden group">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                      <img src={card.icon} alt={card.title} className="w-16 h-16 object-contain" />
+                      <span className="text-lg font-semibold text-[#1E1E1E] dark:text-gray-200">{card.title}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
 
-              {/* ========== PUBLIC CLOUD ========== */}
-              <div>
-                <h3 className="text-[#1E1E1E] dark:text-gray-100 font-semibold text-lg mb-6 transition-colors">{text.publicCloudTitle}</h3>
+        <div className="max-w-[1200px] mx-auto px-6">
+          <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
+        </div>
 
-                <div className="flex justify-between gap-4">
-                  <Card icon={images.indo} title={text.cardIndoCloud} variant="blue" />
-                  <Card icon={images.belanda} title={text.cardNethCloud} variant="blue" />
+        {/* HYPER CONVERGED SECTION - Desain disamakan dengan Security/Modernization */}
+        <section className="py-24 transition-colors">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="max-w-[600px] mb-12">
+              <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-4">{text.hyperTitle}</h2>
+              <p className="text-gray-600 dark:text-gray-300 max-w-[800px]">{text.hyperDesc}</p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {text.hyperCards.map((card, i) => (
+                <div key={i} className="bg-[#F8F9FB] dark:bg-[#161F32] p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm relative overflow-hidden group flex flex-col items-start">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                  <img src={card.icon} alt={card.title} className="w-12 h-12 mb-4 object-contain" />
+                  <h3 className="text-[#1E1E1E] dark:text-white font-bold text-lg group-hover:text-[#00ADEE] transition-colors">{card.title}</h3>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ========== HYPER SECTION ========== */}
-        {/* Background image tidak perlu diubah, text sudah putih */}
-        <section className="relative w-full h-full pb-10 lg:h-[700px] bg-cover bg-center" style={{ backgroundImage: `url(${images.hyperbg})` }}>
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-24">
-            {/* Judul & Deskripsi */}
-            <div className="text-white mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="text-[28px] sm:text-[32px] font-bold mb-2 lg:mb-3">{text.hyperTitle}</h2>
+        <div className="max-w-[1200px] mx-auto px-6">
+          <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
+        </div>
 
-              <p className="max-w-[700px] text-xs sm:text-sm lg:text-[16px] leading-relaxed">
-                <span className="font-semibold">{text.hyperDescBold}</span>
-                {text.hyperDescNormal}
-              </p>
+        {/* SECURITY SECTION */}
+        <section className="py-24 transition-colors">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="max-w-[600px] mb-12">
+              <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-4">{text.securityTitle}</h2>
+              <p className="text-gray-600 dark:text-gray-300">{text.securityDesc}</p>
             </div>
-
-            {/* Cards */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-              <Card icon={images.x86} title={text.cardX86} variant="hyper" />
-              <Card icon={images.ibmlinux} title={text.cardLinuxOne} variant="hyper" />
-              <Card icon={images.ibmpower} title={text.cardPower} variant="hyper" />
-            </div>
-          </div>
-        </section>
-
-        {/* ========== SECURITY SECTION ========== */}
-        {/* Background section: Putih abu -> Abu gelap */}
-        <section className="bg-[#F8F9FB] dark:bg-gray-900 py-12 sm:py-16 lg:py-20 transition-colors duration-300">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Title */}
-            <div className="text-right mb-8 sm:mb-10 lg:mb-14 flex flex-col items-end">
-              <h2 className="text-[28px] sm:text-[32px] font-bold text-[#1E1E1E] dark:text-white transition-colors">{text.securityTitle}</h2>
-              <p className="text-[#555] dark:text-gray-400 text-sm sm:text-[16px] mt-2 max-w-[480px] leading-relaxed transition-colors">{text.securityDesc}</p>
-            </div>
-
-            {/* Cards Container: Putih -> Abu medium */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm transition-colors duration-300">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <Card icon={images.intel} title={text.cardThreat} variant="default" />
-                <Card icon={images.trafic} title={text.cardTraffic} variant="default" />
-                <Card icon={images.linechart} title={text.cardDepth} variant="default" />
-                <Card icon={images.cluster} title={text.cardCluster} variant="default" />
-                <Card icon={images.automation} title={text.cardAutomation} variant="default" />
-              </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {text.securityCards.map((card, i) => (
+                <div key={i} className="bg-[#F8F9FB] dark:bg-[#161F32] p-6 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm relative overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                  <img src={card.icon} alt={card.title} className="w-12 h-12 mb-4 object-contain" />
+                  <h3 className="text-[#1E1E1E] dark:text-white font-semibold text-[15px] leading-snug group-hover:text-[#00ADEE] transition-colors">{card.title}</h3>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ========== DATA MODERNIZATION SECTION ========== */}
-        {/* Background Image aman karena ada overlay hitam */}
-        <section className="relative w-full h-auto lg:h-[700px] bg-cover bg-center" style={{ backgroundImage: `url(${images.datamodern})` }}>
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40"></div>
+        <div className="max-w-[1200px] mx-auto px-6">
+          <hr className="border-t-2 border-gray-100 dark:border-gray-800" />
+        </div>
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0 h-auto lg:h-full flex flex-col items-center justify-center text-center">
-            {/* Title */}
-            <h2 className="text-white font-bold text-[28px] sm:text-[32px] mb-3 lg:mb-4">{text.dataTitle}</h2>
-
-            {/* Description */}
-            <p className="text-gray-200 max-w-[650px] text-sm sm:text-base lg:text-[16px] leading-relaxed mb-8 lg:mb-12">{text.dataDesc}</p>
-
-            {/* Card */}
-            <div className="w-full flex justify-center">
-              <Card icon={images.data} title={text.cardDataModern} variant="datamodern" />
+        {/* DATA MODERNIZATION SECTION - Menggunakan Desain Kotak Besar tapi Efek Tetap Security */}
+        <section className="py-24 transition-colors bg-white dark:bg-[#0B1221]">
+          <div className="max-w-[1200px] mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold text-[#1E1E1E] dark:text-white mb-4">{text.dataTitle}</h2>
+            <p className="text-gray-600 dark:text-gray-300 max-w-[700px] mx-auto mb-12">{text.dataDesc}</p>
+            
+            <div className="inline-flex items-center gap-6 bg-[#F8F9FB] dark:bg-[#161F32] p-10 rounded-3xl border border-gray-100 dark:border-gray-700/50 shadow-md relative overflow-hidden group text-left">
+              {/* Efek Garis Biru di Samping seperti Security */}
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#00ADEE] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+              <img src={images.data} alt="Data" className="w-12 h-12 mb-4 object-contain" />
+              <h3 className="text-[#1E1E1E] dark:text-white font-semibold text-[15px] leading-snug group-hover:text-[#00ADEE] transition-colors">{text.dataCards[0].title}</h3>
             </div>
           </div>
         </section>
       </main>
 
-      {/* ========== FOOTER ========== */}
       <Footer active="solution" />
     </>
   );
