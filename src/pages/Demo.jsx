@@ -94,36 +94,29 @@ const Demo = () => {
       return;
     }
 
+    // Tampilkan loading toast
+    const loadingToast = toast.loading(language === "ID" ? "Sedang mengirim..." : "Sending...");
+
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/request-demo`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        }
-      );
+     
+      const res = await fetch("/api/send-email", { // Arahkan ke folder api yang baru dibuat
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
       const data = await res.json();
 
       if (data.success) {
-        toast.success(language === "ID" ? "Request demo berhasil dikirim!" : "Demo request sent successfully!");
-
-        setForm({
-          name: "",
-          email: "",
-          company: "",
-          job: "",
-          phone: "",
-          city: "",
-        });
-
+        toast.success(language === "ID" ? "Request demo berhasil dikirim!" : "Demo request sent successfully!", { id: loadingToast });
+        setForm({ name: "", email: "", company: "", job: "", phone: "", city: "" });
         setErrors({});
       } else {
-        toast.error(language === "ID" ? "Gagal mengirim. Coba lagi." : "Failed to send. Try again.");
+        throw new Error(data.error);
       }
     } catch (err) {
-      toast.error(language === "ID" ? "Terjadi masalah pada server." : "Server error occurred.");
+      console.error("Fetch Error:", err);
+      toast.error(language === "ID" ? "Gagal mengirim pesan." : "Failed to send message.", { id: loadingToast });
     }
   };
 
