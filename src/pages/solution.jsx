@@ -64,7 +64,8 @@ const Solution = () => {
         { title: "X86 Architecture", icon: images.x86 },
         { title: "IBM LinuxOne", icon: images.ibmlinux },
         { title: "IBM Power", icon: images.ibmpower },
-      ],
+      ], 
+      
       securityTitle: "Security",
       securityDesc: "Bring you an exclusive range of specialized security services, tailored to meet the unique security requirements of organizations.",
       securityCards: [
