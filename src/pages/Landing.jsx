@@ -4,6 +4,7 @@ import images from "../assets";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import { useLanguage } from "../Context/LanguageContext";
+import { Link } from "react-router-dom";
 
 const logos = [
   images.amt,
@@ -141,9 +142,16 @@ const Landing = () => {
                 <h1 className="text-white font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight mb-3">{text.heroTitle}</h1>
                 <p className="text-gray-200 text-xs sm:text-sm lg:text-[16px] leading-relaxed">{text.heroDesc}</p>
                 {/* Button hover effect diperhalus */}
-                <button className="w-fit px-6 py-3 text-white bg-[#00539B] dark:bg-[#00ADEE] rounded-[30px] text-sm sm:text-base mt-4 hover:bg-[#004080] dark:hover:bg-[#008CC9] transition">
-                  {text.btnStart}
-                </button>
+                <div className="relative z-20 mt-8">
+                  <Link to="/demo" className="inline-block cursor-pointer">
+                    <button 
+                      type="button"
+                      className="px-10 py-3 sm:px-16 sm:py-4 text-white text-lg sm:text-xl font-semibold rounded-full bg-[#0A5EA8] shadow-[0_6px_0_#063B6A] transition-all duration-100 ease-out active:translate-y-[4px] active:shadow-none hover:bg-[#0d69ba] cursor-pointer"
+                    >
+                      {text.btnStart}
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
